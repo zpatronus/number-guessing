@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <assert.h>
+#include <stdlib.h>
 #include "utils.h"
 void initGame(Game* game) {
     game->turnCnt = 0;
@@ -53,10 +54,9 @@ GameResult takeGuessResult(Game* game, int guess, Result result) {
     return Ongoing;
 }
 int makeGuess(Game* game) {
-    for (int i = 0; i < MAX_POSSIBLE; i++) {
-        if (game->isPossible[i]) {
-            return game->num[i];
-        }
+    int i = rand() % 5040;
+    while (!game->isPossible[i]) {
+        i = (i + 1) % 5040;
     }
-    return 0;
+    return game->num[i];
 }
