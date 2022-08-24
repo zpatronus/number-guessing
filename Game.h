@@ -8,7 +8,9 @@
 #define MAX_POSSIBLE (5040)  // the maximum number of possible answer
 #include <stdbool.h>
 /**
- * @brief the status of a `game`. `Ongoing` means the game doesn't end. `Correct` means the answer is guessed. `Impossible` means there's no valid number satisfying the given inputs.
+ * @brief the status of a `game`. `Ongoing` means the game doesn't end.
+ * `Correct` means the answer is guessed.
+ * `Impossible` means there's no valid number satisfying the given inputs.
  *
  */
 typedef enum {
@@ -20,7 +22,8 @@ typedef enum {
     Impossible
 } GameResult;
 /**
- * @brief the status of the result of a guess. `A` is the number of A and `B` is the number of B.
+ * @brief the status of the result of a guess.
+ * `A` is the number of A and `B` is the number of B.
  *
  */
 typedef struct {
@@ -55,6 +58,7 @@ typedef struct {
 void initGame(Game* game);
 /**
  * @brief return the comparing result of a given answer and a given guess
+ * e.g. judgeGuess(1234,0243)=(Result){1,2}
  *
  * @param correctNum the given answer
  * @param guessNum the given guess
@@ -62,7 +66,8 @@ void initGame(Game* game);
  */
 Result judgeGuess(int correctNum, int guessNum);
 /**
- * @brief update the game passed by the pointer by the last guess. Update turnCnt, possibleCnt, and isPossible[]
+ * @brief update the game passed by the pointer by the last guess.
+ * Update turnCnt, possibleCnt, and isPossible[]
  *
  * @param game the pointer of the game
  */

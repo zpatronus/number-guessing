@@ -7,7 +7,8 @@
 #include <stdbool.h>
 #include "Game.h"
 /**
- * @brief get the digit given the number and the position of a 4-digit number. e.g. getDigit(234,2) returns 2 because 0234 will be completed as 0234
+ * @brief get the digit given the number and the position of a 4-digit number.
+ * e.g. getDigit(234,2) returns 2 because 0234 will be completed as 0234
  *
  * @param num the number
  * @param digitPos the position of the digit
@@ -31,13 +32,15 @@ bool isValidNum(int num);
  */
 bool isValidResult(Result res);
 /**
- * @brief print the given 4-digit number; e.g. printNum(123) should print 0123
+ * @brief print the given 4-digit number;
+ * e.g. printNum(123) should print 0123
  *
  * @param num the number
  */
 void printNum(int num);
 /**
- * @brief print a string; if the length of the string is less than the given width, print space after the string to match the width
+ * @brief print a string; if the length of the string is less than the given width,
+ * print space after the string to match the width
  *
  * @param s the string
  * @param width the width

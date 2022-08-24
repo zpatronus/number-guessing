@@ -13,7 +13,8 @@
  */
 int beforeTurn(Game* game);
 /**
- * @brief request a valid guess from the user; if the user press enter without inputting anything, use the AI's guess as user's guess
+ * @brief request a valid guess from the user;
+ * if the user press enter without inputting anything, use the AI's guess as user's guess
  *
  * @param aiGuess the smart guess chosen by AI
  * @return int the number chosen by the user
