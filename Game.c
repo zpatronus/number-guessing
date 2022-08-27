@@ -53,7 +53,7 @@ GameResult takeGuessResult(Game* game, int guess, Result result) {
     }
     return Ongoing;
 }
-int makeGuess(Game* game) {
+int makeGuess(Game* const game) {
     int i = rand() % 5040;
     while (!game->isPossible[i]) {
         i = (i + 1) % 5040;
