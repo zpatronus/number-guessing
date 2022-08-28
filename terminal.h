@@ -24,6 +24,7 @@ int requestNewGuess(const int aiGuess);
 /**
  * @brief request a valid comparing result of the user's guess and the correct answer
  *
+ * @param guess the guess related to the result gotten from this function
  * @return Result  the comparing result of the user's guess and the correct answer
  */
 Result requestNewGuessResult(const int guess);
