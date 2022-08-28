@@ -26,7 +26,7 @@ int requestNewGuess(const int aiGuess);
  *
  * @return Result  the comparing result of the user's guess and the correct answer
  */
-Result requestNewGuessResult();
+Result requestNewGuessResult(const int guess);
 /**
  * @brief print information when the game is end
  *

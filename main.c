@@ -5,7 +5,7 @@
 #include "terminal.h"
 #include "utils.h"
 int main(void) {
-    srand(time(NULL));
+    srand(time(NULL) * 100);
     Game game;
     initGame(&game);
     while (1) {
@@ -15,7 +15,7 @@ int main(void) {
             revert1Turn(&game);
             continue;
         }
-        Result res = requestNewGuessResult();
+        Result res = requestNewGuessResult(guess);
         GameResult gameResult = takeGuessResult(&game, guess, res);
         if (gameResult != Ongoing) {
             endGame(&game, gameResult);

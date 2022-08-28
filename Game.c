@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "utils.h"
 void initGame(Game* const game) {
+    // Implement this function in milestone 2. It takes about 11 lines of code.
     game->turnCnt = 0;
     game->possibleCnt = MAX_POSSIBLE;
     for (int i = 0; i < MAX_POSSIBLE; i++) {
@@ -18,6 +19,7 @@ void initGame(Game* const game) {
     assert(cnt == MAX_POSSIBLE);
 }
 Result judgeGuess(const int correctNum, const int guessNum) {
+    // Implement this function in milestone 2. It takes about 10 lines of code.
     Result res = {0};
     for (int i = 1; i <= 4; i++) {
         res.A += getDigit(correctNum, i) == getDigit(guessNum, i);
@@ -30,6 +32,7 @@ Result judgeGuess(const int correctNum, const int guessNum) {
     return res;
 }
 void updateGameWithTurn(Game* const game, const int turn) {
+    // Implement this function in milestone 2. It takes about 10 lines of code.
     game->possibleCnt = 0;
     int theGuess = game->guesses[turn];
     Result theResult = game->results[turn];
@@ -42,6 +45,7 @@ void updateGameWithTurn(Game* const game, const int turn) {
     }
 }
 GameResult takeGuessResult(Game* const game, const int guess, const Result result) {
+    // Implement this function in milestone 2. It takes about 11 lines of code.
     game->turnCnt++;
     game->guesses[game->turnCnt] = guess;
     game->results[game->turnCnt] = result;
@@ -55,6 +59,7 @@ GameResult takeGuessResult(Game* const game, const int guess, const Result resul
     return Ongoing;
 }
 void revert1Turn(Game* const game) {
+    // Implement this function in milestone 2. It takes about 12 lines of code.
     if (game->turnCnt == 0) {
         printf("This is turn #1. Cannot revert.\n");
         return;
@@ -69,6 +74,7 @@ void revert1Turn(Game* const game) {
     }
 }
 int makeGuess(const Game* const game) {
+    // Implement this function in milestone 3. It takes about 5 lines of code.
     int i = rand() % 5040;
     while (!game->isPossible[i]) {
         i = (i + 1) % 5040;

@@ -67,7 +67,7 @@ void initGame(Game* const game);
 Result judgeGuess(const int correctNum, const int guessNum);
 /**
  * @brief update the game passed by the pointer by a certain set of guess and result.
- * Update possibleCnt, and isPossible[]
+ * Update possibleCnt and isPossible[]
  *
  * @param game the pointer of the game
  * @param turn the turn number
