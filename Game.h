@@ -55,7 +55,7 @@ typedef struct {
  *
  * @param game the pointer of a game
  */
-void initGame(Game* game);
+void initGame(Game* const game);
 /**
  * @brief return the comparing result of a given answer and a given guess
  * e.g. judgeGuess(1234,0243)=(Result){1,2}
@@ -64,14 +64,15 @@ void initGame(Game* game);
  * @param guessNum the given guess
  * @return Result  The comparing result of correctNum and guessNum
  */
-Result judgeGuess(int correctNum, int guessNum);
+Result judgeGuess(const int correctNum, const int guessNum);
 /**
- * @brief update the game passed by the pointer by the last guess.
- * Update turnCnt, possibleCnt, and isPossible[]
+ * @brief update the game passed by the pointer by a certain set of guess and result.
+ * Update possibleCnt, and isPossible[]
  *
  * @param game the pointer of the game
+ * @param turn the turn number
  */
-void updateGameWithLastTurn(Game* game);
+void updateGameWithTurn(Game* const game, const int turn);
 /**
  * @brief update the game with a new set of guess and result.
  *
@@ -80,12 +81,12 @@ void updateGameWithLastTurn(Game* game);
  * @param result the result of that guess
  * @return GameResult the status of the game after adding this set of guess and result
  */
-GameResult takeGuessResult(Game* game, int guess, Result result);
+GameResult takeGuessResult(Game* const game, const int guess, const Result result);
 /**
  * @brief make a smart guess based on the game
  *
  * @param game the pointer of the game
  * @return int a integer representing the smart guess
  */
-int makeGuess(Game* game);
+int makeGuess(const Game* const game);
 #endif /* EEA23FAF_CC23_4072_838D_FCC8847BD8F2 */

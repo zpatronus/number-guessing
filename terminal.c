@@ -6,7 +6,7 @@
 #include <string.h>
 #include "utils.h"
 #define WIDTH (55)
-int beforeTurn(Game* const game) {
+int beforeTurn(const Game* const game) {
     printf("------------------------------\n");
     printf("Turn #%d. The number of possible answer is %d. AI's choice is to guess ", game->turnCnt + 1, game->possibleCnt);
     int aiGuess = makeGuess(game);
@@ -14,7 +14,7 @@ int beforeTurn(Game* const game) {
     puts("");
     return aiGuess;
 }
-int requestNewGuess(int aiGuess) {
+int requestNewGuess(const int aiGuess) {
     int newGuess = 0;
     printWithWidth("Input a guess or press enter to take AI's choice:", WIDTH);
     do {
@@ -41,7 +41,7 @@ Result requestNewGuessResult() {
     } while (!isValidResult(newResult));
     return newResult;
 }
-void endGame(Game* const game, GameResult gameResult) {
+void endGame(const Game* const game, const GameResult gameResult) {
     printf("------------------------------\n");
     if (gameResult == Correct) {
         printf("Congratulations! You've guessed the correct number in %d steps!\n", game->turnCnt);

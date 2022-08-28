@@ -11,7 +11,7 @@
  * @param game the pointer of the game
  * @return int the smart guess chosen by AI
  */
-int beforeTurn(Game* game);
+int beforeTurn(const Game* const game);
 /**
  * @brief request a valid guess from the user;
  * if the user press enter without inputting anything, use the AI's guess as user's guess
@@ -19,7 +19,7 @@ int beforeTurn(Game* game);
  * @param aiGuess the smart guess chosen by AI
  * @return int the number chosen by the user
  */
-int requestNewGuess(int aiGuess);
+int requestNewGuess(const int aiGuess);
 /**
  * @brief request a valid comparing result of the user's guess and the correct answer
  *
@@ -32,5 +32,5 @@ Result requestNewGuessResult();
  * @param game the pointer of the game
  * @param gameResult the game's result
  */
-void endGame(Game* game, GameResult gameResult);
+void endGame(const Game* const game, const GameResult gameResult);
 #endif /* AD4F26AC_95E9_4F12_A2FD_84EF02868891 */

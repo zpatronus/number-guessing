@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "utils.h"
-void initGame(Game* game) {
+void initGame(Game* const game) {
     game->turnCnt = 0;
     game->possibleCnt = MAX_POSSIBLE;
     for (int i = 0; i < MAX_POSSIBLE; i++) {
@@ -16,7 +16,7 @@ void initGame(Game* game) {
     }
     assert(cnt == MAX_POSSIBLE);
 }
-Result judgeGuess(int correctNum, int guessNum) {
+Result judgeGuess(const int correctNum, const int guessNum) {
     Result res = {0};
     for (int i = 1; i <= 4; i++) {
         res.A += getDigit(correctNum, i) == getDigit(guessNum, i);
@@ -28,10 +28,10 @@ Result judgeGuess(int correctNum, int guessNum) {
     }
     return res;
 }
-void updateGameWithLastTurn(Game* game) {
+void updateGameWithTurn(Game* const game, const int turn) {
     game->possibleCnt = 0;
-    int theGuess = game->guesses[game->turnCnt];
-    Result theResult = game->results[game->turnCnt];
+    int theGuess = game->guesses[turn];
+    Result theResult = game->results[turn];
     for (int i = 0; i < MAX_POSSIBLE; i++) {
         Result judge = judgeGuess(theGuess, game->num[i]);
         if (judge.A != theResult.A || judge.B != theResult.B) {
@@ -40,11 +40,11 @@ void updateGameWithLastTurn(Game* game) {
         game->possibleCnt += game->isPossible[i];
     }
 }
-GameResult takeGuessResult(Game* game, int guess, Result result) {
+GameResult takeGuessResult(Game* const game, const int guess, const Result result) {
     game->turnCnt++;
     game->guesses[game->turnCnt] = guess;
     game->results[game->turnCnt] = result;
-    updateGameWithLastTurn(game);
+    updateGameWithTurn(game, game->turnCnt);
     if (result.A == 4) {
         return Correct;
     }
@@ -53,7 +53,7 @@ GameResult takeGuessResult(Game* game, int guess, Result result) {
     }
     return Ongoing;
 }
-int makeGuess(Game* const game) {
+int makeGuess(const Game* const game) {
     int i = rand() % 5040;
     while (!game->isPossible[i]) {
         i = (i + 1) % 5040;

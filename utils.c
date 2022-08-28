@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Game.h"
-int getDigit(int num, int digitPos) {
+int getDigit(const int num, const int digitPos) {
     return (num / (int)pow(10, 4 - digitPos)) % 10;
 }
 bool isValidNum(int num) {
@@ -22,7 +22,7 @@ bool isValidNum(int num) {
     }
     return true;
 }
-bool isValidResult(Result res) {
+bool isValidResult(const Result res) {
     if (res.A + res.B > 4 || res.A < 0 || res.B < 0) {
         return false;
     }
@@ -31,12 +31,12 @@ bool isValidResult(Result res) {
     }
     return true;
 }
-void printNum(int num) {
+void printNum(const int num) {
     for (int i = 1; i <= 4; i++) {
         printf("%d", getDigit(num, i));
     }
 }
-void printWithWidth(char s[], int width) {
+void printWithWidth(const char s[], const int width) {
     printf("%s", s);
     for (int i = strlen(s) + 1; i <= width; i++) {
         printf(" ");
