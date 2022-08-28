@@ -83,6 +83,12 @@ void updateGameWithTurn(Game* const game, const int turn);
  */
 GameResult takeGuessResult(Game* const game, const int guess, const Result result);
 /**
+ * @brief revert game by 1 turn
+ *
+ * @param game the pointer of the game
+ */
+void revert1Turn(Game* const game);
+/**
  * @brief make a smart guess based on the game
  *
  * @param game the pointer of the game

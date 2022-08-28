@@ -11,6 +11,10 @@ int main(void) {
     while (1) {
         int aiGuess = beforeTurn(&game);
         int guess = requestNewGuess(aiGuess);
+        if (guess == -1) {
+            revert1Turn(&game);
+            continue;
+        }
         Result res = requestNewGuessResult();
         GameResult gameResult = takeGuessResult(&game, guess, res);
         if (gameResult != Ongoing) {

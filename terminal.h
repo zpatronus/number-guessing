@@ -15,9 +15,10 @@ int beforeTurn(const Game* const game);
 /**
  * @brief request a valid guess from the user;
  * if the user press enter without inputting anything, use the AI's guess as user's guess
+ * if the user input "-", return -1 (which means revert 1 turn)
  *
  * @param aiGuess the smart guess chosen by AI
- * @return int the number chosen by the user
+ * @return int the number chosen by the user, or -1 which means revert 1 turn
  */
 int requestNewGuess(const int aiGuess);
 /**

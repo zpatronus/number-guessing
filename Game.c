@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <assert.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "utils.h"
 void initGame(Game* const game) {
@@ -52,6 +53,20 @@ GameResult takeGuessResult(Game* const game, const int guess, const Result resul
         return Impossible;
     }
     return Ongoing;
+}
+void revert1Turn(Game* const game) {
+    if (game->turnCnt == 0) {
+        printf("This is turn #1. Cannot revert.\n");
+        return;
+    }
+    game->turnCnt--;
+    for (int i = 0; i < MAX_POSSIBLE; i++) {
+        game->isPossible[i] = true;
+    }
+    game->possibleCnt = MAX_POSSIBLE;
+    for (int i = 1; i <= game->turnCnt; i++) {
+        updateGameWithTurn(game, i);
+    }
 }
 int makeGuess(const Game* const game) {
     int i = rand() % 5040;
